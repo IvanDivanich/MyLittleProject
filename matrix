@@ -1,0 +1,45 @@
+try
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+
+                int a = 0;
+
+                while (a != 4)
+                {
+                    a++;
+
+                    StreamWriter sw = new StreamWriter("E:/123.txt", true, System.Text.Encoding.UTF8);
+
+                    int[] array = new int[10000000];
+
+                    Random random = new Random();
+
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        array[i] = random.Next(0, 2);
+
+                        sw.Write(array[i] + " ");
+                    }
+
+                    sw.Close();
+                }
+
+                while (true)
+                {
+                    StreamReader matrix = new StreamReader("E:/123.txt");
+
+                    string line;
+
+                    while ((line = matrix.ReadLine()) != null)
+                    {
+                        Console.WriteLine(line);
+                    }
+
+
+                    matrix.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Не удалось получить доступ к файлу" + ex);
+            }
